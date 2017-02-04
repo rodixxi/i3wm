@@ -1,0 +1,34 @@
+#!/bin/bash
+
+
+#intall i3wm
+
+apt-get install i3 -y
+
+i3-config-wizard
+
+mkdir i3install.temp
+
+apt-get install pactl -y
+
+cd i3install.temp
+
+wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
+
+dpkg -i playerctl-0.5.0_amd64.deb
+
+echo "Ingrese nombre de usuario:"
+
+read user
+
+mkdir /home/$user/Pictures/.wallpaper
+
+cd /home/$user/Pictures/.wallpaper && wget http://wallpapercave.com/wp/hc11meW.jpg
+
+mv /home/$user/Pictures/.wallpaper/hc11meW.jpg /home/$user/Pictures/.wallpaper/wallpaper.jpg
+
+apt-get install feh -y
+
+feh --bg-scale /home/$user/Pictures/.wallpaper/wallpaper.jpg
+
+rm -rf /home/$user/i3install.temp
