@@ -49,6 +49,36 @@ mkdir /home/$user/.fonts
 
 mv /home/$user/i3install.temp/Font-Awesome-4.7.0/fonts/fontawesome-webfont.ttf /home/$user/.fonts
 
+cd /home/$user/i3install.temp
 
+wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+
+unzip YosemiteSanFranciscoFont-master.zip
+
+mv /home/$user/i3install.temp/YosemiteSanFranciscoFont-master/*.ttf /home/$user/.fonts
+
+apt-get install lxappearance
+
+echo "Abrir lxappearance y cambiar tamanho de la letra"
+
+read nada
+
+echo "Cambiar la fuete a System San Francisco Display 10"
+
+read nada
+
+nano /home/$user/.gtkrc-2.0
+
+read nada
+
+nano /home/$user/.config/gtk-3.0/settings.i3install
+
+read nada
+
+apt-get install comptom -y
+
+apt-get install i3blocks -y
+
+cp /etc/i3blocks.conf /home/$user/.i3/
 
 rm -rf /home/$user/i3install.temp
