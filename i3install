@@ -3,11 +3,19 @@
 
 #intall i3wm
 
+echo "Ingrese nombre de usuario:"
+
+read user
+
+#install i3
+
 apt-get install i3 -y
 
 i3-config-wizard
 
-mkdir i3install.temp
+mkdir /home/$user/i3install.temp
+
+#controladores de media keys
 
 apt-get install pactl -y
 
@@ -17,9 +25,7 @@ wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5
 
 dpkg -i playerctl-0.5.0_amd64.deb
 
-echo "Ingrese nombre de usuario:"
-
-read user
+#wallpaper
 
 mkdir /home/$user/Pictures/.wallpaper
 
@@ -30,5 +36,19 @@ mv /home/$user/Pictures/.wallpaper/hc11meW.jpg /home/$user/Pictures/.wallpaper/w
 apt-get install feh -y
 
 feh --bg-scale /home/$user/Pictures/.wallpaper/wallpaper.jpg
+
+#fonts awesome
+
+cd /home/$user/i3install.temp
+
+wget https://github.com/FortAwesome/Font-Awesome/archive/v4.7.0.zip
+
+unzip v4.7.0.zip
+
+mkdir /home/$user/.fonts
+
+mv /home/$user/i3install.temp/Font-Awesome-4.7.0/fonts/fontawesome-webfont.ttf /home/$user/.fonts
+
+
 
 rm -rf /home/$user/i3install.temp
